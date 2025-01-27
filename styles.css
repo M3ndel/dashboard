@@ -67,7 +67,7 @@ body, html {
 	z-index: 10;
 
 	display: grid;
-	grid-template: 1fr 1fr / 5fr 4fr;
+	grid-template: 50px 70px / 5fr 4fr;
 	padding: 20px 50px;
 	align-items: center;
 }
@@ -90,6 +90,7 @@ input {
 	border-radius: 18px;
 	border: none;
 	background-color: lightgray;
+	padding: 0 18px;
 }
 
 .header img {
@@ -126,5 +127,86 @@ button {
 	grid-column: 2 / -1;
 	grid-row: 2 / -1;
 	
+	padding: 35px 28px;
 	background-color: lightgray;
+	display: grid;
+	gap: 18px;
+	grid-template: 320px 1fr / minmax(376px, 1fr) 245px;
+	grid-template-areas: 
+		"projects announcements"
+		"projects trending"
+	;
+}
+
+.main .projects {
+	grid-area: projects;
+}
+
+.main .announcements {
+	grid-area: announcements;
+}
+
+.main .trending {
+	grid-area: trending;
+}
+
+.announcements .card,
+.trending .card {
+	background-color: white;
+	width: 100%;
+	height: calc(100% - 50px);
+	margin: 15px 0;
+	border-radius: 8px;
+
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.announcements .card div,
+.trending .card div {
+	flex: 1;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+hr {
+	margin-top: 11px;
+	margin-bottom: 11px;
+	border: gray 1px solid;
+	width: 100%;
+}
+
+.trending .card div {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.trending .card div img {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+}
+
+.trending .card div p {
+	margin: 4px;
+}
+
+.board {
+	margin-top: 15px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 340px);
+	gap: 28px;
+}
+
+.project {
+	width: 324px;
+	height: 186px;
+	background: linear-gradient(90deg, gold 0, gold 8px, white 8px, white 100%);
+	border-radius: 8px;
+	padding: 16px;
 }
